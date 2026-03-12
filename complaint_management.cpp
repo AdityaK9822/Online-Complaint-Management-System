@@ -17,7 +17,6 @@ void divider() {
     cout << "--------------------------------------------\n";
 }
 
-// ── Safe integer input: clears cin on bad input ───────
 int readInt() {
     int val;
     while (!(cin >> val)) {
@@ -55,8 +54,7 @@ void registerComplaint() {
 
     cout << "Enter Description      : ";
     getline(cin, descriptions[complaintCount]);
-
-    // Validate: reject empty inputs
+    
     if (names[complaintCount].empty() || categories[complaintCount].empty() || descriptions[complaintCount].empty()) {
         cout << "\n  [!] All fields are required. Complaint not registered.\n";
         divider();
@@ -138,7 +136,6 @@ void updateStatus() {
         return;
     }
 
-    // Prevent updating a closed complaint
     if (statuses[i] == "Closed") {
         cout << "  [!] This complaint is already Closed and cannot be updated.\n";
         divider();
